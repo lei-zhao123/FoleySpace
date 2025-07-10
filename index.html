@@ -12,21 +12,7 @@
   <div class="video-row">
     <div class="video-container">
       <video id="video0" width="320" controls></video>
-      <p id="title0"></p>  <!-- Title for video 1 -->
-    </div>
-    <div class="video-container">
-      <video id="video1" width="320" controls></video>
-      <p id="title1"></p>  <!-- Title for video 2 -->
-    </div>
-    <div class="video-container">
-      <video id="video2" width="320" controls></video>
-      <p id="title2"></p>  <!-- Title for video 3 -->
-    </div>
-  </div>
-
-  <form id="rating-form">
-    <div class="video-rating-block">
-      <h3>视频 1</h3>
+      <p id="title0">视频 1</p>
       <div class="question">音频质量：<span class="radio-group" id="audioQuality0"></span></div>
       <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency0"></span></div>
       <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency0"></span></div>
@@ -34,8 +20,9 @@
       <div class="question">用户偏好：<span class="radio-group" id="userPreference0"></span></div>
     </div>
 
-    <div class="video-rating-block">
-      <h3>视频 2</h3>
+    <div class="video-container">
+      <video id="video1" width="320" controls></video>
+      <p id="title1">视频 2</p>
       <div class="question">音频质量：<span class="radio-group" id="audioQuality1"></span></div>
       <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency1"></span></div>
       <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency1"></span></div>
@@ -43,17 +30,18 @@
       <div class="question">用户偏好：<span class="radio-group" id="userPreference1"></span></div>
     </div>
 
-    <div class="video-rating-block">
-      <h3>视频 3</h3>
+    <div class="video-container">
+      <video id="video2" width="320" controls></video>
+      <p id="title2">视频 3</p>
       <div class="question">音频质量：<span class="radio-group" id="audioQuality2"></span></div>
       <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency2"></span></div>
       <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency2"></span></div>
       <div class="question">时间一致性：<span class="radio-group" id="temporalConsistency2"></span></div>
       <div class="question">用户偏好：<span class="radio-group" id="userPreference2"></span></div>
     </div>
+  </div>
 
-    <button type="submit">下一题</button>
-  </form>
+  <button type="submit">下一题</button>
 
   <div id="complete" style="display:none;">
     <p>评分完成！点击下载：</p>
