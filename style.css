@@ -1,28 +1,41 @@
-
 body {
   font-family: sans-serif;
   max-width: 960px;
   margin: auto;
   padding: 2em;
 }
+
+#cover-page {
+  text-align: center;
+  padding: 2em;
+}
+
+#questionnaire {
+  display: none;
+}
+
 .video-row {
   display: flex;
   gap: 1em;
   justify-content: space-between;
   margin-bottom: 2em;
 }
+
 .video-rating-block {
   margin-bottom: 2em;
   border-top: 1px solid #ccc;
   padding-top: 1em;
 }
+
 .question {
   margin: 1em 0;
 }
+
 .radio-group label {
   display: inline-block;
   margin-right: 1em;
 }
+
 #rating-form button {
   margin-top: 1em;
   padding: 0.5em 1.5em;
