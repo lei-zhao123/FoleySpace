@@ -1,1 +1,53 @@
-<h1> folySpace </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3-way User Study</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>用户评分任务</h1>
+    <div id="video-block">
+      <h2 id="video-label">视频 1 / 3</h2>
+      <video id="media" width="640" controls></video>
+    </div>
+    <div id="rating-form-container">
+      <form id="rating-form">
+        <p>请对以下维度进行评分（1–5 分）：</p>
+        <label>音频质量：
+          <select name="audioQuality" required>
+            <option value="">请选择</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>空间一致性：
+          <select name="spatialConsistency" required>
+            <option value="">请选择</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>语义一致性：
+          <select name="semanticConsistency" required>
+            <option value="">请选择</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>时间一致性：
+          <select name="temporalConsistency" required>
+            <option value="">请选择</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <br>
+        <button type="submit">提交评分</button>
+      </form>
+    </div>
+    <div id="final" style="display:none;">
+      <p>全部评分完成，点击按钮下载结果：</p>
+      <button onclick="downloadCSV()">下载CSV</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
