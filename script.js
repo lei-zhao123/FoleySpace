@@ -56,6 +56,7 @@ function populateRadios() {
 }
 
 function loadQuestion(index) {
+  console.log("Loading question", index + 1);
   document.getElementById("question-counter").textContent = `Question ${index + 1} / ${questionGroups.length}`;
   const videos = questionGroups[index];
 
@@ -83,7 +84,10 @@ document.getElementById("rating-form").addEventListener("submit", (e) => {
       timestamp: new Date().toISOString()
     });
   }
-  current++; // Increment the question index
+  
+  current++; // Increment to next question
+  console.log("Current question:", current);
+  
   if (current < questionGroups.length) {
     loadQuestion(current);  // Load next question
   } else {
