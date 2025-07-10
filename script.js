@@ -1,10 +1,37 @@
+
 const questionGroups = [
-  ["stimuli/sample_01_base1.mp4", "stimuli/sample_01_base1.mp4", "stimuli/sample_01_base1.mp4"],
+  ["stimuli/q1_video1.mp4", "stimuli/q1_video2.mp4", "stimuli/q1_video3.mp4"],
   ["stimuli/q2_video1.mp4", "stimuli/q2_video2.mp4", "stimuli/q2_video3.mp4"],
   ["stimuli/q3_video1.mp4", "stimuli/q3_video2.mp4", "stimuli/q3_video3.mp4"],
   ["stimuli/q4_video1.mp4", "stimuli/q4_video2.mp4", "stimuli/q4_video3.mp4"],
   ["stimuli/q5_video1.mp4", "stimuli/q5_video2.mp4", "stimuli/q5_video3.mp4"],
-  // 其他问题组...
+  ["stimuli/q6_video1.mp4", "stimuli/q6_video2.mp4", "stimuli/q6_video3.mp4"],
+  ["stimuli/q7_video1.mp4", "stimuli/q7_video2.mp4", "stimuli/q7_video3.mp4"],
+  ["stimuli/q8_video1.mp4", "stimuli/q8_video2.mp4", "stimuli/q8_video3.mp4"],
+  ["stimuli/q9_video1.mp4", "stimuli/q9_video2.mp4", "stimuli/q9_video3.mp4"],
+  ["stimuli/q10_video1.mp4", "stimuli/q10_video2.mp4", "stimuli/q10_video3.mp4"],
+  ["stimuli/q11_video1.mp4", "stimuli/q11_video2.mp4", "stimuli/q11_video3.mp4"],
+  ["stimuli/q12_video1.mp4", "stimuli/q12_video2.mp4", "stimuli/q12_video3.mp4"],
+  ["stimuli/q13_video1.mp4", "stimuli/q13_video2.mp4", "stimuli/q13_video3.mp4"],
+  ["stimuli/q14_video1.mp4", "stimuli/q14_video2.mp4", "stimuli/q14_video3.mp4"],
+  ["stimuli/q15_video1.mp4", "stimuli/q15_video2.mp4", "stimuli/q15_video3.mp4"],
+  ["stimuli/q16_video1.mp4", "stimuli/q16_video2.mp4", "stimuli/q16_video3.mp4"],
+  ["stimuli/q17_video1.mp4", "stimuli/q17_video2.mp4", "stimuli/q17_video3.mp4"],
+  ["stimuli/q18_video1.mp4", "stimuli/q18_video2.mp4", "stimuli/q18_video3.mp4"],
+  ["stimuli/q19_video1.mp4", "stimuli/q19_video2.mp4", "stimuli/q19_video3.mp4"],
+  ["stimuli/q20_video1.mp4", "stimuli/q20_video2.mp4", "stimuli/q20_video3.mp4"],
+  ["stimuli/q21_video1.mp4", "stimuli/q21_video2.mp4", "stimuli/q21_video3.mp4"],
+  ["stimuli/q22_video1.mp4", "stimuli/q22_video2.mp4", "stimuli/q22_video3.mp4"],
+  ["stimuli/q23_video1.mp4", "stimuli/q23_video2.mp4", "stimuli/q23_video3.mp4"],
+  ["stimuli/q24_video1.mp4", "stimuli/q24_video2.mp4", "stimuli/q24_video3.mp4"],
+  ["stimuli/q25_video1.mp4", "stimuli/q25_video2.mp4", "stimuli/q25_video3.mp4"],
+  ["stimuli/q26_video1.mp4", "stimuli/q26_video2.mp4", "stimuli/q26_video3.mp4"],
+  ["stimuli/q27_video1.mp4", "stimuli/q27_video2.mp4", "stimuli/q27_video3.mp4"],
+  ["stimuli/q28_video1.mp4", "stimuli/q28_video2.mp4", "stimuli/q28_video3.mp4"],
+  ["stimuli/q29_video1.mp4", "stimuli/q29_video2.mp4", "stimuli/q29_video3.mp4"],
+  ["stimuli/q30_video1.mp4", "stimuli/q30_video2.mp4", "stimuli/q30_video3.mp4"],
+  ["stimuli/q31_video1.mp4", "stimuli/q31_video2.mp4", "stimuli/q31_video3.mp4"],
+  ["stimuli/q32_video1.mp4", "stimuli/q32_video2.mp4", "stimuli/q32_video3.mp4"]
 ];
 
 let current = 0;
@@ -15,7 +42,6 @@ window.onload = () => {
   loadQuestion(current);
 };
 
-// 填充评分控件
 function populateRadios() {
   for (let i = 0; i < 3; i++) {
     ["audioQuality", "spatialConsistency", "semanticConsistency", "temporalConsistency", "userPreference"].forEach(metric => {
@@ -30,23 +56,18 @@ function populateRadios() {
   }
 }
 
-// 加载问题
 function loadQuestion(index) {
-  console.log("加载问题", index + 1);
-  document.getElementById("question-counter").textContent = `Question ${index + 1} / ${questionGroups.length}`;
+  document.getElementById("question-counter").textContent = `题目 ${index + 1} / ${questionGroups.length}`;
   const videos = questionGroups[index];
-
-  // 设置视频源
   videos.forEach((src, i) => {
     document.getElementById(`video${i}`).src = src;
-    document.getElementById(`title${i}`).textContent = `视频 ${i + 1}`;  // 设置标题
   });
+  document.getElementById("rating-form").reset();
 }
 
-// 下一题
-function nextQuestion() {
-  // 获取表单数据
-  const data = new FormData(document.getElementById("rating-form"));
+document.getElementById("rating-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const data = new FormData(e.target);
   for (let i = 0; i < 3; i++) {
     results.push({
       question: current + 1,
@@ -59,22 +80,16 @@ function nextQuestion() {
       timestamp: new Date().toISOString()
     });
   }
-
-  current++; // 增加问题索引
-  console.log("当前问题:", current);
-
-  // 检查是否有更多问题
+  current++;
   if (current < questionGroups.length) {
-    loadQuestion(current);  // 加载下一题
+    loadQuestion(current);
   } else {
-    // 如果没有更多问题，显示完成页面
     document.getElementById("rating-form").style.display = "none";
     document.querySelector(".video-row").style.display = "none";
-    document.getElementById("complete").style.display = "block";  // 显示完成页面
+    document.getElementById("complete").style.display = "block";
   }
-}
+});
 
-// 下载结果
 function downloadCSV() {
   const header = Object.keys(results[0]).join(",");
   const lines = results.map(r => Object.values(r).join(","));
