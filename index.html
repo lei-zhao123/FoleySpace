@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>三视频评分实验</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>三视频并排评分</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">
-    <h1>三视频评分任务</h1>
-    <div id="video-block">
-      <h2 id="video-label">视频 1 / 3</h2>
-      <video id="media" width="640" controls></video>
-    </div>
+  <h1>主观评分问卷：三视频并排展示</h1>
+  <div id="group-label">第 1 组</div>
 
-    <div id="rating-form-container">
-      <form id="rating-form">
-        <p>请对当前视频进行评分（1–5 分）：</p>
-        <label>音频质量：
-          <select name="audioQuality" required>
-            <option value="">请选择</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-          </select>
-        </label>
-        <label>空间一致性：
-          <select name="spatialConsistency" required>
-            <option value="">请选择</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-          </select>
-        </label>
-        <label>语义一致性：
-          <select name="semanticConsistency" required>
-            <option value="">请选择</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-          </select>
-        </label>
-        <label>时间一致性：
-          <select name="temporalConsistency" required>
-            <option value="">请选择</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-          </select>
-        </label>
-        <br>
-        <button type="submit">提交评分</button>
+  <div id="video-container">
+    <div class="video-block" id="video0">
+      <video width="320" controls></video>
+      <form class="rating-form">
+        <h3>视频 1</h3>
+        <label>音频质量：<select name="audioQuality" required></select></label>
+        <label>空间一致性：<select name="spatialConsistency" required></select></label>
+        <label>语义一致性：<select name="semanticConsistency" required></select></label>
+        <label>时间一致性：<select name="temporalConsistency" required></select></label>
       </form>
     </div>
 
-    <div id="final" style="display:none;">
-      <p>全部评分已完成，点击下载评分数据：</p>
-      <button onclick="downloadCSV()">下载CSV</button>
+    <div class="video-block" id="video1">
+      <video width="320" controls></video>
+      <form class="rating-form">
+        <h3>视频 2</h3>
+        <label>音频质量：<select name="audioQuality" required></select></label>
+        <label>空间一致性：<select name="spatialConsistency" required></select></label>
+        <label>语义一致性：<select name="semanticConsistency" required></select></label>
+        <label>时间一致性：<select name="temporalConsistency" required></select></label>
+      </form>
+    </div>
+
+    <div class="video-block" id="video2">
+      <video width="320" controls></video>
+      <form class="rating-form">
+        <h3>视频 3</h3>
+        <label>音频质量：<select name="audioQuality" required></select></label>
+        <label>空间一致性：<select name="spatialConsistency" required></select></label>
+        <label>语义一致性：<select name="semanticConsistency" required></select></label>
+        <label>时间一致性：<select name="temporalConsistency" required></select></label>
+      </form>
     </div>
   </div>
+
+  <button id="next-button">提交当前组评分</button>
+
+  <div id="complete" style="display:none;">
+    <h3>感谢您的参与！</h3>
+    <button onclick="downloadCSV()">下载评分结果</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
