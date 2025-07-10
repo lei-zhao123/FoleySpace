@@ -1,55 +1,30 @@
+
 body {
   font-family: sans-serif;
   max-width: 960px;
   margin: auto;
   padding: 2em;
 }
-
 .video-row {
   display: flex;
-  flex-direction: column; /* 将每个视频和问题垂直堆叠 */
-  gap: 2em; /* 设置视频和问题之间的间隔 */
+  gap: 1em;
+  justify-content: space-between;
   margin-bottom: 2em;
 }
-
 .video-rating-block {
-  display: flex;
-  justify-content: space-between; /* 视频和问题排成一行 */
-  gap: 2em;
+  margin-bottom: 2em;
   border-top: 1px solid #ccc;
   padding-top: 1em;
 }
-
-.video-container {
-  text-align: center; /* 视频居中 */
-  width: 45%; /* 视频容器占45%宽度 */
-}
-
-.video-container p {
-  font-size: 1em;
-  font-weight: bold;
-  margin-top: 0.5em;
-}
-
-.video-question {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  align-items: flex-start;
-}
-
 .question {
-  margin: 0.5em 0;
+  margin: 1em 0;
 }
-
 .radio-group label {
   display: inline-block;
   margin-right: 1em;
 }
-
 #rating-form button {
   margin-top: 1em;
   padding: 0.5em 1.5em;
   font-size: 1em;
-  cursor: pointer;
 }
