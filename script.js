@@ -1,6 +1,6 @@
 const groups = [
-  ["stimuli/group1_ours.mp4", "stimuli/group1_base1.mp4", "stimuli/group1_base2.mp4"],
-  ["stimuli/group2_ours.mp4", "stimuli/group2_base1.mp4", "stimuli/group2_base2.mp4"]
+  ["stimuli/sample_01_base1.mp4", "stimuli/sample_01_base1.mp4", "stimuli/sample_01_ours.mp4"],
+  ["stimuli/sample_01_ours.mp4", "stimuli/sample_01_base1.mp4", "stimuli/sample_01_base1.mp4"]
 ];
 
 let currentGroup = 0;
