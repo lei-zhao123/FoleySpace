@@ -1,19 +1,27 @@
 body {
   font-family: sans-serif;
-  max-width: 960px;
-  margin: auto;
+  max-width: 960px; /* 页面最大宽度 */
+  margin: 0 auto; /* 居中页面 */
   padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 使页面垂直居中 */
 }
 
 .video-row {
   display: flex;
   justify-content: space-between;
-  gap: 2em; /* Ensure there is space between each video */
+  gap: 2em; /* 确保视频之间有足够的间隔 */
   margin-bottom: 2em;
+  width: 100%;
+  justify-content: center; /* 视频居中 */
 }
 
 .video-container {
-  text-align: center; /* Center the video and questions */
+  text-align: center; /* 视频和问题居中 */
+  width: 33%; /* 每个视频占一列 */
 }
 
 .video-container p {
@@ -48,4 +56,9 @@ body {
   margin-top: 1em;
   padding: 0.5em 1.5em;
   font-size: 1em;
+  cursor: pointer;
+}
+
+#complete {
+  text-align: center;
 }
