@@ -1,36 +1,43 @@
 
 body {
-  font-family: sans-serif;
-  max-width: 960px;
-  margin: auto;
-  padding: 2em;
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
-.video-row {
-  display: flex;
-  gap: 1em;
-  justify-content: space-between;
-  margin-bottom: 2em;
-  width: 480px; /* 或 640px，看你想多大 */
-  max-width: 100%; /* 可自适应缩放 */
-  height: auto;
+
+.video-section {
+    margin-bottom: 30px;
 }
-.video-rating-block {
-  margin-bottom: 2em;
-  border-top: 1px solid #ccc;
-  padding-top: 1em;
-/*   max-width: 640px;
-  margin-left: auto;
-  margin-right: auto; */
+
+.video-section video {
+    width: 100%;
+    height: 300px;
 }
-.question {
-  margin: 1em 0;
+
+.questionnaire {
+    margin-top: 10px;
 }
-.radio-group label {
-  display: inline-block;
-  margin-right: 1em;
+
+.questionnaire label {
+    font-weight: bold;
 }
-#rating-form button {
-  margin-top: 1em;
-  padding: 0.5em 1.5em;
-  font-size: 1em;
+
+.questionnaire input[type="radio"] {
+    margin: 0 5px;
+}
+
+.questionnaire .question {
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
 }

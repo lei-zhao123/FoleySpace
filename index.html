@@ -1,64 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>32题三视频主观评分</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频观看评价问卷</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>三视频主观评分问卷</h1>
-  <div id="question-counter"></div>
 
-  <div class="video-row">
-    <video id="video0" width="640" controls></video>
-<!--     <video id="video0" controls></video> -->
-    <video id="video1" width="640" controls></video>
-    <video id="video2" width="640" controls></video>
-  </div>
+    <h1>视频观看评价问卷</h1>
 
-  <form id="rating-form">
-    <div class="video-rating-block">
-      <h3>视频 1</h3>
-      <div class="question">音频质量：<span class="radio-group" id="audioQuality0"></span></div>
-<!--       <div class="question">音频质量：
-        <label><input type="radio" name="audioQuality0" value="1"> 1</label>
-        <label><input type="radio" name="audioQuality0" value="2"> 2</label>
-        <label><input type="radio" name="audioQuality0" value="3"> 3</label>
-        <label><input type="radio" name="audioQuality0" value="4"> 4</label>
-        <label><input type="radio" name="audioQuality0" value="5"> 5</label>
-      </div> -->
-      <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency0"></span></div>
-      <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency0"></span></div>
-      <div class="question">时间一致性：<span class="radio-group" id="temporalConsistency0"></span></div>
-      <div class="question">用户偏好：<span class="radio-group" id="userPreference0"></span></div>
-    </div>
+    <form id="surveyForm">
+        <!-- 视频和问题部分 -->
+        <div id="videosContainer"></div>
 
+        <!-- 提交按钮 -->
+        <button type="button" class="submit-button" onclick="generateCSV()">提交问卷</button>
+    </form>
 
-    <div class="video-rating-block">
-      <h3>视频 2</h3>
-      <div class="question">音频质量：<span class="radio-group" id="audioQuality1"></span></div>
-      <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency1"></span></div>
-      <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency1"></span></div>
-      <div class="question">时间一致性：<span class="radio-group" id="temporalConsistency1"></span></div>
-      <div class="question">用户偏好：<span class="radio-group" id="userPreference1"></span></div>
-    </div>
-
-    <div class="video-rating-block">
-      <h3>视频 3</h3>
-      <div class="question">音频质量：<span class="radio-group" id="audioQuality2"></span></div>
-      <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency2"></span></div>
-      <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency2"></span></div>
-      <div class="question">时间一致性：<span class="radio-group" id="temporalConsistency2"></span></div>
-      <div class="question">用户偏好：<span class="radio-group" id="userPreference2"></span></div>
-    </div>
-
-    <button type="submit">下一题</button>
-  </form>
-
-  <div id="complete" style="display:none;">
-    <p>评分完成！点击下载：</p>
-    <button onclick="downloadCSV()">下载 CSV</button>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

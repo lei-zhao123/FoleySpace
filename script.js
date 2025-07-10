@@ -1,102 +1,64 @@
 
-const questionGroups = [
-  ["stimuli/sample_01_base1.mp4", "stimuli/sample_01_base2.mp4", "stimuli/sample_01_base1.mp4"],
-  ["stimuli/q2_video1.mp4", "stimuli/q2_video2.mp4", "stimuli/q2_video3.mp4"],
-  ["stimuli/q3_video1.mp4", "stimuli/q3_video2.mp4", "stimuli/q3_video3.mp4"],
-  ["stimuli/q4_video1.mp4", "stimuli/q4_video2.mp4", "stimuli/q4_video3.mp4"],
-  ["stimuli/q5_video1.mp4", "stimuli/q5_video2.mp4", "stimuli/q5_video3.mp4"],
-  ["stimuli/q6_video1.mp4", "stimuli/q6_video2.mp4", "stimuli/q6_video3.mp4"],
-  ["stimuli/q7_video1.mp4", "stimuli/q7_video2.mp4", "stimuli/q7_video3.mp4"],
-  ["stimuli/q8_video1.mp4", "stimuli/q8_video2.mp4", "stimuli/q8_video3.mp4"],
-  ["stimuli/q9_video1.mp4", "stimuli/q9_video2.mp4", "stimuli/q9_video3.mp4"],
-  ["stimuli/q10_video1.mp4", "stimuli/q10_video2.mp4", "stimuli/q10_video3.mp4"],
-  ["stimuli/q11_video1.mp4", "stimuli/q11_video2.mp4", "stimuli/q11_video3.mp4"],
-  ["stimuli/q12_video1.mp4", "stimuli/q12_video2.mp4", "stimuli/q12_video3.mp4"],
-  ["stimuli/q13_video1.mp4", "stimuli/q13_video2.mp4", "stimuli/q13_video3.mp4"],
-  ["stimuli/q14_video1.mp4", "stimuli/q14_video2.mp4", "stimuli/q14_video3.mp4"],
-  ["stimuli/q15_video1.mp4", "stimuli/q15_video2.mp4", "stimuli/q15_video3.mp4"],
-  ["stimuli/q16_video1.mp4", "stimuli/q16_video2.mp4", "stimuli/q16_video3.mp4"],
-  ["stimuli/q17_video1.mp4", "stimuli/q17_video2.mp4", "stimuli/q17_video3.mp4"],
-  ["stimuli/q18_video1.mp4", "stimuli/q18_video2.mp4", "stimuli/q18_video3.mp4"],
-  ["stimuli/q19_video1.mp4", "stimuli/q19_video2.mp4", "stimuli/q19_video3.mp4"],
-  ["stimuli/q20_video1.mp4", "stimuli/q20_video2.mp4", "stimuli/q20_video3.mp4"],
-  ["stimuli/q21_video1.mp4", "stimuli/q21_video2.mp4", "stimuli/q21_video3.mp4"],
-  ["stimuli/q22_video1.mp4", "stimuli/q22_video2.mp4", "stimuli/q22_video3.mp4"],
-  ["stimuli/q23_video1.mp4", "stimuli/q23_video2.mp4", "stimuli/q23_video3.mp4"],
-  ["stimuli/q24_video1.mp4", "stimuli/q24_video2.mp4", "stimuli/q24_video3.mp4"],
-  ["stimuli/q25_video1.mp4", "stimuli/q25_video2.mp4", "stimuli/q25_video3.mp4"],
-  ["stimuli/q26_video1.mp4", "stimuli/q26_video2.mp4", "stimuli/q26_video3.mp4"],
-  ["stimuli/q27_video1.mp4", "stimuli/q27_video2.mp4", "stimuli/q27_video3.mp4"],
-  ["stimuli/q28_video1.mp4", "stimuli/q28_video2.mp4", "stimuli/q28_video3.mp4"],
-  ["stimuli/q29_video1.mp4", "stimuli/q29_video2.mp4", "stimuli/q29_video3.mp4"],
-  ["stimuli/q30_video1.mp4", "stimuli/q30_video2.mp4", "stimuli/q30_video3.mp4"],
-  ["stimuli/q31_video1.mp4", "stimuli/q31_video2.mp4", "stimuli/q31_video3.mp4"],
-  ["stimuli/q32_video1.mp4", "stimuli/q32_video2.mp4", "stimuli/q32_video3.mp4"]
+const questions = [
+    '音频质量', '空间一致性', '语义一致性', '时间一致性', '用户偏好'
 ];
 
-let current = 0;
-let results = [];
+const videoCount = 15;  // 15 个问题，每个问题有 3 个视频
+const videosContainer = document.getElementById('videosContainer');
 
-window.onload = () => {
-  populateRadios();
-  loadQuestion(current);
-};
+// 生成视频和问题部分
+for (let i = 10; i <= videoCount; i++) {
+    const videoSection = document.createElement('div');
+    videoSection.classList.add('video-section');
 
-function populateRadios() {
-  for (let i = 0; i < 3; i++) {
-    ["audioQuality", "spatialConsistency", "semanticConsistency", "temporalConsistency", "userPreference"].forEach(metric => {
-      const container = document.getElementById(metric + i);
-      container.innerHTML = "";
-      for (let v = 1; v <= 5; v++) {
-        const label = document.createElement("label");
-        label.innerHTML = `<input type="radio" name="${metric}${i}" value="${v}" required> ${v}`;
-        container.appendChild(label);
-      }
-    });
-  }
+    // 每个问题的三个视频
+    videoSection.innerHTML = `
+        <h2>问题 ${i}</h2>
+        ${['1', '2', '3'].map((videoId) => {
+            return `
+                <div class="video">
+                    <h4>视频 ${videoId}</h4>
+                    <video width="100%" height="300" controls>
+                        <source src="stimuli/q${i}_video${videoId}.mp4" type="video/mp4">
+                        你的浏览器不支持视频标签。
+                    </video>
+                    <div class="questionnaire">
+                        ${questions.map((question, qIndex) => `
+                            <div class="question">
+                                <label for="q${i}-video${videoId}-question${qIndex + 1}">${question}：</label>
+                                ${[1, 2, 3, 4, 5].map(value => `
+                                    <input type="radio" name="q${i}-video${videoId}-question${qIndex + 1}" value="${value}" required> ${value}
+                                `).join('')}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }).join('')}
+    `;
+
+    videosContainer.appendChild(videoSection);
 }
 
-function loadQuestion(index) {
-  document.getElementById("question-counter").textContent = `题目 ${index + 1} / ${questionGroups.length}`;
-  const videos = questionGroups[index];
-  videos.forEach((src, i) => {
-    document.getElementById(`video${i}`).src = src;
-  });
-  document.getElementById("rating-form").reset();
-}
+function generateCSV() {
+    const formData = new FormData(document.getElementById('surveyForm'));
+    const results = [];
 
-document.getElementById("rating-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  for (let i = 0; i < 3; i++) {
-    results.push({
-      question: current + 1,
-      video: questionGroups[current][i],
-      audioQuality: data.get(`audioQuality${i}`),
-      spatialConsistency: data.get(`spatialConsistency${i}`),
-      semanticConsistency: data.get(`semanticConsistency${i}`),
-      temporalConsistency: data.get(`temporalConsistency${i}`),
-      userPreference: data.get(`userPreference${i}`),
-      timestamp: new Date().toISOString()
+    formData.forEach((value, key) => {
+        const [questionId, videoId] = key.split('-').slice(0, 2);
+        results.push({ questionId, videoId, value });
     });
-  }
-  current++;
-  if (current < questionGroups.length) {
-    loadQuestion(current);
-  } else {
-    document.getElementById("rating-form").style.display = "none";
-    document.querySelector(".video-row").style.display = "none";
-    document.getElementById("complete").style.display = "block";
-  }
-});
 
-function downloadCSV() {
-  const header = Object.keys(results[0]).join(",");
-  const lines = results.map(r => Object.values(r).join(","));
-  const csv = [header, ...lines].join("\n");
-  const blob = new Blob([csv], { type: "text/csv" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "user_study_results.csv";
-  a.click();
+    const headers = ['问题ID', '视频ID', '评分'];
+    let csvContent = headers.join(',') + '\n';
+
+    results.forEach(result => {
+        csvContent += `${result.questionId},${result.videoId},${result.value}\n`;
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'survey_results.csv';
+    link.click();
 }
