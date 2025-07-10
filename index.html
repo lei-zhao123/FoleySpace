@@ -1,43 +1,18 @@
-<h1>三视频评分实验</h1>
-
-<!-- 视频横排 -->
-<div class="video-row">
-  <video id="video0" width="320" controls></video>
-  <video id="video1" width="320" controls></video>
-  <video id="video2" width="320" controls></video>
-</div>
-
-<!-- 评分表：按维度纵排，每行对应一个评分维度，每列对应一个视频 -->
-<form id="rating-form">
-  <div class="rating-row">
-    <label>音频质量：</label>
+<div class="video-rating-block">
+  <h3>视频 1</h3>
+  <label>音频质量：
     <select name="audioQuality0" required></select>
-    <select name="audioQuality1" required></select>
-    <select name="audioQuality2" required></select>
-  </div>
-  <div class="rating-row">
-    <label>空间一致性：</label>
+  </label>
+  <label>空间一致性：
     <select name="spatialConsistency0" required></select>
-    <select name="spatialConsistency1" required></select>
-    <select name="spatialConsistency2" required></select>
-  </div>
-  <div class="rating-row">
-    <label>语义一致性：</label>
+  </label>
+  <label>语义一致性：
     <select name="semanticConsistency0" required></select>
-    <select name="semanticConsistency1" required></select>
-    <select name="semanticConsistency2" required></select>
-  </div>
-  <div class="rating-row">
-    <label>时间一致性：</label>
+  </label>
+  <label>时间一致性：
     <select name="temporalConsistency0" required></select>
-    <select name="temporalConsistency1" required></select>
-    <select name="temporalConsistency2" required></select>
-  </div>
-
-  <button type="submit">提交当前组评分</button>
-</form>
-
-<div id="complete" style="display:none;">
-  <h3>评分完成，点击下载结果：</h3>
-  <button onclick="downloadCSV()">下载CSV</button>
+  </label>
+  <label>用户偏好：
+    <select name="userPreference0" required></select>
+  </label>
 </div>
