@@ -7,13 +7,14 @@ body {
 
 .video-row {
   display: flex;
-  justify-content: space-between;
-  gap: 2em; /* Ensure there is space between each video */
+  justify-content: space-between; /* 视频和问题分布在两列 */
+  gap: 2em; /* 设置视频和问题之间的间隔 */
   margin-bottom: 2em;
 }
 
 .video-container {
-  text-align: center; /* Center the video and questions */
+  text-align: center; /* 视频居中 */
+  width: 45%; /* 视频容器占宽度的45% */
 }
 
 .video-container p {
@@ -48,4 +49,9 @@ body {
   margin-top: 1em;
   padding: 0.5em 1.5em;
   font-size: 1em;
+  cursor: pointer;
+}
+
+#complete {
+  text-align: center;
 }
