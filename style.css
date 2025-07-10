@@ -7,26 +7,23 @@ body {
 
 .video-row {
   display: flex;
-  gap: 1em;
   justify-content: space-between;
+  gap: 2em; /* Ensure there is space between each video */
   margin-bottom: 2em;
+}
+
+.video-container {
+  text-align: center; /* Center the video and questions */
 }
 
 .video-container p {
-  text-align: center;
   font-size: 1em;
-  margin-top: 0.5em;
   font-weight: bold;
-}
-
-.video-rating-block {
-  margin-bottom: 2em;
-  border-top: 1px solid #ccc;
-  padding-top: 1em;
+  margin-top: 0.5em;
 }
 
 .question {
-  margin: 1em 0;
+  margin: 0.5em 0;
 }
 
 .radio-group label {
