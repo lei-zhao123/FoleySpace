@@ -1,6 +1,6 @@
 
 const questionGroups = [
-  ["stimuli/q1_video1.mp4", "stimuli/q1_video2.mp4", "stimuli/q1_video3.mp4"],
+  ["stimuli/sample_01_base1.mp4", "stimuli/sample_01_base2.mp4", "stimuli/sample_01_base1.mp4"],
   ["stimuli/q2_video1.mp4", "stimuli/q2_video2.mp4", "stimuli/q2_video3.mp4"],
   ["stimuli/q3_video1.mp4", "stimuli/q3_video2.mp4", "stimuli/q3_video3.mp4"],
   ["stimuli/q4_video1.mp4", "stimuli/q4_video2.mp4", "stimuli/q4_video3.mp4"],
