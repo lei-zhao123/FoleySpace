@@ -5,24 +5,25 @@ body {
   margin: auto;
 }
 
-#video-container {
+.video-row {
   display: flex;
-  justify-content: space-between;
   gap: 1em;
   margin-bottom: 2em;
+  justify-content: space-between;
 }
 
-.video-block {
-  flex: 1;
+.rating-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
 }
 
-select {
-  margin-left: 0.5em;
-  margin-bottom: 0.5em;
+.rating-row label {
+  width: 150px;
+  font-weight: bold;
 }
 
-button {
-  padding: 0.6em 1.2em;
+.rating-row select {
+  margin-right: 1em;
   font-size: 1em;
-  margin-top: 1em;
 }
