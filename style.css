@@ -1,29 +1,8 @@
-body {
-  font-family: sans-serif;
-  padding: 2em;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.video-row {
-  display: flex;
-  gap: 1em;
+.video-rating-block {
   margin-bottom: 2em;
-  justify-content: space-between;
 }
 
-.rating-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1em;
-}
-
-.rating-row label {
-  width: 150px;
-  font-weight: bold;
-}
-
-.rating-row select {
-  margin-right: 1em;
-  font-size: 1em;
+.video-rating-block label {
+  display: block;
+  margin: 0.5em 0;
 }
