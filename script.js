@@ -38,9 +38,15 @@ let current = 0;
 let results = [];
 
 window.onload = () => {
+  document.getElementById("startButton").addEventListener("click", startQuestionnaire);
   populateRadios();
   loadQuestion(current);
 };
+
+function startQuestionnaire() {
+  document.getElementById("cover-page").style.display = "none";
+  document.getElementById("questionnaire").style.display = "block";
+}
 
 function populateRadios() {
   for (let i = 0; i < 3; i++) {
