@@ -22,6 +22,19 @@ body {
   margin-top: 0.5em;
 }
 
+.video-question-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.video-question {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+
 .question {
   margin: 0.5em 0;
 }
