@@ -1,8 +1,30 @@
-.video-rating-block {
+
+body {
+  font-family: sans-serif;
+  max-width: 960px;
+  margin: auto;
+  padding: 2em;
+}
+.video-row {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
   margin-bottom: 2em;
 }
-
+.video-rating-block {
+  margin-bottom: 2em;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
 .video-rating-block label {
   display: block;
   margin: 0.5em 0;
+}
+
+
+.question {
+  margin: 1em 0;
+}
+.question label {
+  margin-right: 1em;
 }
