@@ -1,5 +1,5 @@
 const questionGroups = [
-  ["stimuli/sample_01_base1.mp4", "stimuli/sample_01_base2.mp4", "stimuli/sample_01_base1.mp4"],
+  ["stimuli/q1_video1.mp4", "stimuli/q1_video2.mp4", "stimuli/q1_video3.mp4"],
   ["stimuli/q2_video1.mp4", "stimuli/q2_video2.mp4", "stimuli/q2_video3.mp4"],
   ["stimuli/q3_video1.mp4", "stimuli/q3_video2.mp4", "stimuli/q3_video3.mp4"],
   ["stimuli/q4_video1.mp4", "stimuli/q4_video2.mp4", "stimuli/q4_video3.mp4"],
@@ -62,7 +62,7 @@ function loadQuestion(index) {
   // Set video sources
   videos.forEach((src, i) => {
     document.getElementById(`video${i}`).src = src;
-    document.getElementById(`title${i}`).textContent = `Video ${i + 1}`;  // Set title below each video
+    document.getElementById(`title${i}`).textContent = `视频 ${i + 1}`;  // Set title below each video
   });
 
   document.getElementById("rating-form").reset();
@@ -83,13 +83,13 @@ document.getElementById("rating-form").addEventListener("submit", (e) => {
       timestamp: new Date().toISOString()
     });
   }
-  current++;
+  current++; // Increment the question index
   if (current < questionGroups.length) {
-    loadQuestion(current);
+    loadQuestion(current);  // Load next question
   } else {
     document.getElementById("rating-form").style.display = "none";
     document.querySelector(".video-row").style.display = "none";
-    document.getElementById("complete").style.display = "block";
+    document.getElementById("complete").style.display = "block";  // Show complete message
   }
 });
 
