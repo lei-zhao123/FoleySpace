@@ -10,6 +10,9 @@ body {
   gap: 1em;
   justify-content: space-between;
   margin-bottom: 2em;
+  width: 480px; /* 或 640px，看你想多大 */
+  max-width: 100%; /* 可自适应缩放 */
+  height: auto;
 }
 .video-rating-block {
   margin-bottom: 2em;
