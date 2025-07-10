@@ -16,11 +16,13 @@ body {
   gap: 2em; /* 设置视频之间的间隔 */
   margin-bottom: 2em;
   width: 100%;
+  flex-wrap: wrap; /* 允许自动换行 */
 }
 
 .video-container {
   text-align: center; /* 视频和问题居中 */
-  width: 33%; /* 每个视频容器占一列 */
+  flex: 1 1 30%; /* 每个视频容器占 30% 宽度，且可以缩放 */
+  min-width: 200px; /* 最小宽度，防止在小屏幕下缩小到太小 */
 }
 
 .video-container p {
