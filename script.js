@@ -1,6 +1,6 @@
 const groups = [
-  ["stimuli/sample_01_base1.mp4", "stimuli/sample_01_base1.mp4", "stimuli/sample_01_ours.mp4"],
-  ["stimuli/sample_01_ours.mp4", "stimuli/sample_01_base1.mp4", "stimuli/sample_01_base1.mp4"]
+  ["stimuli/group1_ours.mp4", "stimuli/group1_base1.mp4", "stimuli/group1_base2.mp4"],
+  ["stimuli/group2_ours.mp4", "stimuli/group2_base1.mp4", "stimuli/group2_base2.mp4"],
 ];
 
 let currentGroup = 0;
@@ -20,63 +20,48 @@ function populateSelects() {
 }
 
 function loadGroup(index) {
-  document.getElementById("group-label").textContent = `第 ${index + 1} 组`;
-  const videos = groups[index];
-  videos.forEach((src, i) => {
-    document.querySelector(`#video${i} video`).src = src;
+  const videoEls = [
+    document.getElementById("video0"),
+    document.getElementById("video1"),
+    document.getElementById("video2")
+  ];
+  groups[index].forEach((src, i) => {
+    videoEls[i].src = src;
   });
-  const forms = document.querySelectorAll(".rating-form");
-  forms.forEach(form => form.reset());
+
+  document.getElementById("rating-form").reset();
 }
 
-document.getElementById("next-button").addEventListener("click", () => {
-  const forms = document.querySelectorAll(".rating-form");
-  let allValid = true;
-  const groupData = [];
+document.getElementById("rating-form").addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  forms.forEach((form, i) => {
-    const data = new FormData(form);
-    const ratings = {
+  const formData = new FormData(e.target);
+  for (let i = 0; i < 3; i++) {
+    results.push({
       group: currentGroup + 1,
-      videoIndex: i + 1,
-      videoFile: groups[currentGroup][i],
-      audioQuality: data.get("audioQuality"),
-      spatialConsistency: data.get("spatialConsistency"),
-      semanticConsistency: data.get("semanticConsistency"),
-      temporalConsistency: data.get("temporalConsistency"),
+      video: groups[currentGroup][i],
+      audioQuality: formData.get(`audioQuality${i}`),
+      spatialConsistency: formData.get(`spatialConsistency${i}`),
+      semanticConsistency: formData.get(`semanticConsistency${i}`),
+      temporalConsistency: formData.get(`temporalConsistency${i}`),
       timestamp: new Date().toISOString()
-    };
-    if (
-      !ratings.audioQuality || !ratings.spatialConsistency ||
-      !ratings.semanticConsistency || !ratings.temporalConsistency
-    ) {
-      allValid = false;
-    }
-    groupData.push(ratings);
-  });
-
-  if (!allValid) {
-    alert("请为每个视频完整评分！");
-    return;
+    });
   }
 
-  results.push(...groupData);
   currentGroup++;
-
   if (currentGroup < groups.length) {
     loadGroup(currentGroup);
   } else {
-    document.getElementById("video-container").style.display = "none";
-    document.getElementById("next-button").style.display = "none";
-    document.getElementById("group-label").style.display = "none";
+    document.getElementById("rating-form").style.display = "none";
+    document.querySelector(".video-row").style.display = "none";
     document.getElementById("complete").style.display = "block";
   }
 });
 
 function downloadCSV() {
-  const headers = Object.keys(results[0]).join(",");
-  const lines = results.map(obj => Object.values(obj).join(","));
-  const csv = [headers, ...lines].join("\n");
+  const header = Object.keys(results[0]).join(",");
+  const lines = results.map(r => Object.values(r).join(","));
+  const csv = [header, ...lines].join("\n");
   const blob = new Blob([csv], { type: "text/csv" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
