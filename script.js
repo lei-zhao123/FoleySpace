@@ -41,16 +41,12 @@ function loadQuestion(index) {
     document.getElementById(`video${i}`).src = src;
     document.getElementById(`title${i}`).textContent = `视频 ${i + 1}`;  // 设置标题
   });
-
-  document.getElementById("rating-form").reset(); // 重置评分表单
 }
 
-// 提交当前问题并加载下一题
-document.getElementById("rating-form").addEventListener("submit", (e) => {
-  e.preventDefault(); // 防止表单默认提交
-
+// 下一题
+function nextQuestion() {
   // 获取表单数据
-  const data = new FormData(e.target);
+  const data = new FormData(document.getElementById("rating-form"));
   for (let i = 0; i < 3; i++) {
     results.push({
       question: current + 1,
@@ -63,7 +59,7 @@ document.getElementById("rating-form").addEventListener("submit", (e) => {
       timestamp: new Date().toISOString()
     });
   }
-  
+
   current++; // 增加问题索引
   console.log("当前问题:", current);
 
@@ -76,7 +72,7 @@ document.getElementById("rating-form").addEventListener("submit", (e) => {
     document.querySelector(".video-row").style.display = "none";
     document.getElementById("complete").style.display = "block";  // 显示完成页面
   }
-});
+}
 
 // 下载结果
 function downloadCSV() {
