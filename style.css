@@ -12,16 +12,15 @@ body {
 
 .video-row {
   display: flex;
-  justify-content: space-between;
-  gap: 2em; /* 确保视频之间有足够的间隔 */
+  justify-content: space-between; /* 确保视频之间有间隔 */
+  gap: 2em; /* 设置视频之间的间隔 */
   margin-bottom: 2em;
   width: 100%;
-  justify-content: center; /* 视频居中 */
 }
 
 .video-container {
   text-align: center; /* 视频和问题居中 */
-  width: 33%; /* 每个视频占一列 */
+  width: 33%; /* 每个视频容器占一列 */
 }
 
 .video-container p {
