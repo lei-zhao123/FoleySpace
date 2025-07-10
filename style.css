@@ -16,15 +16,15 @@ body {
   border-top: 1px solid #ccc;
   padding-top: 1em;
 }
-.video-rating-block label {
-  display: block;
-  margin: 0.5em 0;
-}
-
-
 .question {
   margin: 1em 0;
 }
-.question label {
+.radio-group label {
+  display: inline-block;
   margin-right: 1em;
+}
+#rating-form button {
+  margin-top: 1em;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
 }

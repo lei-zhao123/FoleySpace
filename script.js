@@ -38,20 +38,22 @@ let current = 0;
 let results = [];
 
 window.onload = () => {
-  populateSelects();
+  populateRadios();
   loadQuestion(current);
 };
 
-function populateSelects() {
-  document.querySelectorAll("select").forEach(select => {
-    select.innerHTML = '<option value="">请选择</option>';
-    for (let i = 1; i <= 5; i++) {
-      const opt = document.createElement("option");
-      opt.value = i;
-      opt.textContent = i;
-      select.appendChild(opt);
-    }
-  });
+function populateRadios() {
+  for (let i = 0; i < 3; i++) {
+    ["audioQuality", "spatialConsistency", "semanticConsistency", "temporalConsistency", "userPreference"].forEach(metric => {
+      const container = document.getElementById(metric + i);
+      container.innerHTML = "";
+      for (let v = 1; v <= 5; v++) {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="radio" name="${metric}${i}" value="${v}" required> ${v}`;
+        container.appendChild(label);
+      }
+    });
+  }
 }
 
 function loadQuestion(index) {
