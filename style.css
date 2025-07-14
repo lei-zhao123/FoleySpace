@@ -16,15 +16,22 @@ body {
 
 .video-rating-pair {
   display: flex;
-  gap: 1.5em;
-  margin-bottom: 2em;
+  flex-direction: row;         /* 横向排列 */
   align-items: flex-start;
+  gap: 2em;                    /* 间距 */
+  margin-bottom: 2em;
+}
+
+video {
+  flex-shrink: 0;
+  width: 320px;
 }
 
 .video-rating-block {
   flex: 1;
-  border-top: 1px solid #ccc;
-  padding-top: 1em;
+  padding-top: 0;
+  margin: 0;
+  border-top: none;
 }
 
 .question {
