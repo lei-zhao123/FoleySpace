@@ -30,7 +30,7 @@ video {
 .video-rating-block {
   flex: 1;
   margin: 0;
-  padding: 0;
+  padding: 0 0 1em 0;
   border: none;
 }
 
