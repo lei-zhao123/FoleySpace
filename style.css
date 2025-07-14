@@ -24,7 +24,7 @@ body {
 
 video {
   flex-shrink: 0;
-  width: 320px;
+  width: 480px;
 }
 
 .video-rating-block {
