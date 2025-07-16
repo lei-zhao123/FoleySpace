@@ -61,7 +61,6 @@ document.getElementById("rating-form").addEventListener("submit", (e) => {
     loadQuestion(current);
   } else {
     document.getElementById("rating-form").style.display = "none";
-    document.querySelector(".video-row").style.display = "none";
     document.getElementById("complete").style.display = "block";
   }
 });
