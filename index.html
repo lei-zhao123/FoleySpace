@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>32题视频主观评分</title>
+  <title>四视频主观评分问卷</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,11 +17,12 @@
 
   <!-- Main Questionnaire -->
   <div id="questionnaire" style="display:none;">
-    <h1>三视频主观评分问卷</h1>
+    <h1>四视频主观评分问卷</h1>
     <div id="question-counter"></div>
 
     <form id="rating-form">
 
+      <!-- 视频 1 -->
       <div class="video-rating-pair">
         <video id="video0" width="320" controls></video>
         <div class="video-rating-block">
@@ -34,6 +35,7 @@
         </div>
       </div>
 
+      <!-- 视频 2 -->
       <div class="video-rating-pair">
         <video id="video1" width="320" controls></video>
         <div class="video-rating-block">
@@ -46,6 +48,7 @@
         </div>
       </div>
 
+      <!-- 视频 3 -->
       <div class="video-rating-pair">
         <video id="video2" width="320" controls></video>
         <div class="video-rating-block">
@@ -55,6 +58,19 @@
           <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency2"></span></div>
           <div class="question">时间一致性：<span class="radio-group" id="temporalConsistency2"></span></div>
           <div class="question">用户偏好：<span class="radio-group" id="userPreference2"></span></div>
+        </div>
+      </div>
+
+      <!-- 视频 4 -->
+      <div class="video-rating-pair">
+        <video id="video3" width="320" controls></video>
+        <div class="video-rating-block">
+          <h3>视频 4</h3>
+          <div class="question">音频质量：<span class="radio-group" id="audioQuality3"></span></div>
+          <div class="question">空间一致性：<span class="radio-group" id="spatialConsistency3"></span></div>
+          <div class="question">语义一致性：<span class="radio-group" id="semanticConsistency3"></span></div>
+          <div class="question">时间一致性：<span class="radio-group" id="temporalConsistency3"></span></div>
+          <div class="question">用户偏好：<span class="radio-group" id="userPreference3"></span></div>
         </div>
       </div>
 
