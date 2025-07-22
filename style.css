@@ -51,7 +51,7 @@ video {
 
 
 .rating-criteria {
-  width: 840px auto;
+  width: auto;
   margin-right: 20px;
   font-size: 14px;
   line-height: 1.5;
@@ -60,12 +60,11 @@ video {
 }
 
 .rating-criteria-video {
-  width: 420px auto;
-  margin-right: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  /* border-right: 2px solid #ccc; */
-  padding-right: 15px;
+  width: 600px;              
+  margin: 0 auto;            
+  text-align: left;          
+  line-height: 1.8;          
+  font-size: 16px;           
 }
 
 table {
