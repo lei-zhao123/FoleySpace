@@ -48,3 +48,36 @@ video {
   padding: 0.5em 1.5em;
   font-size: 1em;
 }
+
+
+.rating-criteria {
+  width: 840px;
+  margin-right: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  /* border-right: 2px solid #ccc; */
+  padding-right: 15px;
+}
+
+.rating-criteria-video {
+  width: 420px;
+  margin-right: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-right: 2px solid #ccc;
+  padding-right: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+th, td {
+  border: 1px solid #aaa;
+  padding: 6px 8px;
+  text-align: left;
+}
+th {
+  background-color: #f0f0f0;
+}
