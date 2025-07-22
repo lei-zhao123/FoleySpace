@@ -60,11 +60,12 @@ video {
 }
 
 .rating-criteria-video {
-  width: 600px;              
-  margin: 0;            
-  text-align: left;          
-  line-height: 1.8;          
-  font-size: 16px;           
+  display: block;
+  width: 600px;
+  margin: 0;                /* 确保没有 auto */
+  text-align: left;
+  line-height: 1.8;
+  font-size: 16px;
 }
 
 table {
