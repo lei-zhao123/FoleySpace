@@ -82,27 +82,3 @@ th, td {
 th {
   background-color: #f0f0f0;
 }
-
-.rating-criteria-video-row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.rating-criteria-col {
-  flex: 1;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.vertical-divider {
-  width: 2px;
-  background-color: #ccc;
-  margin: 0 10px;
-}
