@@ -82,3 +82,29 @@ th, td {
 th {
   background-color: #f0f0f0;
 }
+
+.rating-criteria-video-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.rating-criteria-col {
+  flex: 1;
+  max-width: 480px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.rating-criteria-col p {
+  margin-bottom: 12px;
+}
+
+/* 中间竖线样式 */
+.vertical-divider {
+  width: 2px;
+  background-color: #ccc;
+  margin: 0 10px;
+}

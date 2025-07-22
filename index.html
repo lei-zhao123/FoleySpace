@@ -11,6 +11,7 @@
   <div id="cover-page">
     <h1>音频主观评分问卷</h1>
     <p>本问卷设计用于对V2A（视频生成音频）模型所生成音频的整体质量进行主观评估，评价维度包括音频质量、空间一致性、语义一致性、时间一致性和用户总体满意度。</p>
+    <p>为保证评估结果的准确性，请使用耳机并适当增加音量。</p>
     
     <h3>下面是评分准则：</h3>
     <div class="rating-criteria">
@@ -75,22 +76,29 @@
   <!-- Main Questionnaire -->
   <div id="questionnaire" style="display:none;">
     <h1>四视频主观评分问卷</h1>
-    <div class="rating-criteria-video">
-      <strong>🎧 音频质量（Audio Quality）：</strong>
-      衡量生成音频本身的听感，包括清晰度、自然度、噪声等。
+    <div class="rating-criteria-video-row">
+      <div class="rating-criteria-col left">
+        <p><strong>🎧 音频质量（Audio Quality）：</strong><br>
+        衡量生成音频本身的听感，包括清晰度、自然度、噪声等。</p>
 
-      <strong>🧭 空间一致性（Spatial Consistency）：</strong>
-      衡量音频的空间定位是否与视频中声源位置匹配（如方向、远近、环境感）。<br>
+        <p><strong>🧭 空间一致性（Spatial Consistency）：</strong><br>
+        衡量音频的空间定位是否与视频中声源位置匹配（如方向、远近、环境感）。</p>
 
-      <strong>🧠 语义一致性（Semantic Consistency）：</strong>
-      衡量音频内容是否准确表达视频中的事件或动作语义（如敲门声、说话、狗叫）。
+        <p><strong>🧠 语义一致性（Semantic Consistency）：</strong><br>
+        衡量音频内容是否准确表达视频中的事件或动作语义（如敲门声、说话、狗叫）。</p>
+      </div>
 
-      <strong>⏱️ 时间一致性（Temporal Consistency）：</strong>
-      衡量音频事件在时间上是否与视频同步，动作与声音是否协调。<br>
+      <div class="vertical-divider"></div>
 
-      <strong>❤️ 用户总体满意度（User Preference）：</strong>
-      衡量用户对整体视听体验的主观喜好程度。
+      <div class="rating-criteria-col right">
+        <p><strong>⏱️ 时间一致性（Temporal Consistency）：</strong><br>
+        衡量音频事件在时间上是否与视频同步，动作与声音是否协调。</p>
+
+        <p><strong>❤️ 用户总体满意度（User Preference）：</strong><br>
+        衡量用户对整体视听体验的主观喜好程度。</p>
+      </div>
     </div>
+
     <div id="question-counter"></div>
 
     <form id="rating-form">
