@@ -4,14 +4,103 @@
   <meta charset="UTF-8">
   <title>四视频主观评分问卷</title>
   <link rel="stylesheet" href="style.css">
+    <style>
+    .video-rating-pair {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+    .rating-criteria {
+      width: 420px;
+      margin-right: 20px;
+      font-size: 14px;
+      line-height: 1.5;
+      border-right: 2px solid #ccc;
+      padding-right: 15px;
+    }
+    .video-rating-block {
+      flex: 1;
+      padding-left: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Cover Page -->
   <div id="cover-page">
-    <h1>视频主观评分问卷</h1>
-    <p>欢迎参加我们的问卷调查，请根据以下视频内容，进行评分。</p>
-    <p>本问卷旨在评估视频质量，包含音频质量、空间一致性、语义一致性、时间一致性等多个方面。</p>
+    <h1>音频主观评分问卷</h1>
+    <p>本问卷设计用于对V2A（视频生成音频）模型所生成音频的整体质量进行主观评估，评价维度包括音频质量、空间一致性、语义一致性、时间一致性和用户总体满意度。</p>
+    
+    <h3>下面是评分准则：</h3>
+    <div class="rating-criteria">
+      <strong>🎧 音频质量（Audio Quality）</strong><br>
+      衡量生成音频本身的听感，包括清晰度、自然度、噪声等。
+      <table>
+        <tr><th>分数</th><th>评分标准</th></tr>
+        <tr><td>1分</td><td>音频失真严重，存在杂音、断裂或合成异常，严重影响理解。</td></tr>
+        <tr><td>2分</td><td>存在明显噪声、音色不自然或过度合成痕迹，听感差。</td></tr>
+        <tr><td>3分</td><td>音频基本清晰，有轻微噪声或合成痕迹，尚可接受。</td></tr>
+        <tr><td>4分</td><td>音质较好，自然流畅，仅有少量小缺陷。</td></tr>
+        <tr><td>5分</td><td>音质优秀，清晰自然，无明显缺陷或杂音。</td></tr>
+      </table>
+
+      <strong>🧭 空间一致性（Spatial Consistency）</strong><br>
+      衡量音频的空间定位是否与视频中声源位置匹配（如方向、远近、环境感）。
+      <table>
+        <tr><th>分数</th><th>评分标准</th></tr>
+        <tr><td>1分</td><td>完全不符合视频内容，声源方向混乱或无空间感。</td></tr>
+        <tr><td>2分</td><td>空间定位感弱，声源方向/距离与视频严重不符。</td></tr>
+        <tr><td>3分</td><td>空间感基本合理，但定位略显模糊或不稳定。</td></tr>
+        <tr><td>4分</td><td>空间定位准确，大致符合视频中的声源位置。</td></tr>
+        <tr><td>5分</td><td>空间一致性极高，定位精准，沉浸感强。</td></tr>
+      </table>
+
+      <strong>🧠 语义一致性（Semantic Consistency）</strong><br>
+      衡量音频内容是否准确表达视频中的事件或动作语义（如敲门声、说话、狗叫）。
+      <table>
+        <tr><th>分数</th><th>评分标准</th></tr>
+        <tr><td>1分</td><td>与视频内容完全不符，甚至产生误导语义。</td></tr>
+        <tr><td>2分</td><td>存在较大语义偏差，无法准确传达视频含义。</td></tr>
+        <tr><td>3分</td><td>大致匹配视频语义，但存在模糊或轻度偏差。</td></tr>
+        <tr><td>4分</td><td>语义表达清晰，基本与视频一致。</td></tr>
+        <tr><td>5分</td><td>与视频事件高度匹配，表达准确自然。</td></tr>
+      </table>
+
+      <strong>⏱️ 时间一致性（Temporal Consistency）</strong><br>
+      衡量音频事件在时间上是否与视频同步，动作与声音是否协调。
+      <table>
+        <tr><th>分数</th><th>评分标准</th></tr>
+        <tr><td>1分</td><td>音频严重提前/滞后，完全不同步。</td></tr>
+        <tr><td>2分</td><td>时间延迟或对齐不稳定，影响观看体验。</td></tr>
+        <tr><td>3分</td><td>时间基本匹配，有少量偏移但可接受。</td></tr>
+        <tr><td>4分</td><td>时间同步较好，仅存在轻微偏差。</td></tr>
+        <tr><td>5分</td><td>时间高度一致，动作与声音完美同步。</td></tr>
+      </table>
+
+      <strong>❤️ 用户总体满意度（User Preference）</strong><br>
+      衡量用户对整体视听体验的主观喜好程度。
+      <table>
+        <tr><th>分数</th><th>评分标准</th></tr>
+        <tr><td>1分</td><td>完全不喜欢，体验非常差。</td></tr>
+        <tr><td>2分</td><td>不太喜欢，有明显问题，不愿再次体验。</td></tr>
+        <tr><td>3分</td><td>一般，部分可接受，整体中等。</td></tr>
+        <tr><td>4分</td><td>喜欢，整体体验良好。</td></tr>
+        <tr><td>5分</td><td>非常喜欢，体验自然流畅。</td></tr>
+      </table>
+    </div>
     <button id="startButton">开始问卷</button>
   </div>
 
