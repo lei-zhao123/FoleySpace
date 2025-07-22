@@ -72,7 +72,7 @@ video {
 table {
   width: 960px;
   border-collapse: collapse;
-  margin-bottom: 15px auto;
+   margin: 0 auto 15px auto;
 }
 th, td {
   border: 1px solid #aaa;
