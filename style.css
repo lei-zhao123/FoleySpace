@@ -86,20 +86,18 @@ th {
 .rating-criteria-video-row {
   display: flex;
   justify-content: center;
-  align-items: stretch;  /* 确保左右高度一致 */
-  gap: 30px;
-  margin: 20px auto;
+  align-items: stretch;
   max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .rating-criteria-col {
   flex: 1;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.rating-criteria-col p {
-  margin-bottom: 12px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .vertical-divider {
