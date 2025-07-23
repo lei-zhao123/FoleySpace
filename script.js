@@ -25,12 +25,12 @@ const questionGroups = [
 // ['demo_all/ThinkSound/storm.mp4', 'demo_all/FoleySpace/storm.mp4', 'demo_all/See2Sound/storm.mp4', 'demo_all/MMAudio/storm.mp4'],
 // ['demo_all/MMAudio/Walter_Woodman.mp4', 'demo_all/FoleySpace/Walter_Woodman.mp4', 'demo_all/See2Sound/Walter_Woodman.mp4', 'demo_all/ThinkSound/Walter_Woodman.mp4'],
 // ['demo_all/ThinkSound/waves_storm.mp4', 'demo_all/MMAudio/waves_storm.mp4', 'demo_all/FoleySpace/waves_storm.mp4', 'demo_all/See2Sound/waves_storm.mp4'],
-['demo_all/ThinkSound/_6spzSHLoY0_000030.mp4', 'demo_all/MMAudio/_6spzSHLoY0_000030.mp4', 'demo_all/FoleySpace/_6spzSHLoY0_000030.mp4', 'demo_all/See2Sound/_6spzSHLoY0_000030.mp4'],
-['demo_all/See2Sound/_bkX5VkZg8U_000189.mp4', 'demo_all/MMAudio/_bkX5VkZg8U_000189.mp4', 'demo_all/FoleySpace/_bkX5VkZg8U_000189.mp4', 'demo_all/ThinkSound/_bkX5VkZg8U_000189.mp4'],
-['demo_all/FoleySpace/_eceNIlHt4E_000204.mp4', 'demo_all/ThinkSound/_eceNIlHt4E_000204.mp4', 'demo_all/See2Sound/_eceNIlHt4E_000204.mp4', 'demo_all/MMAudio/_eceNIlHt4E_000204.mp4'],
-['demo_all/ThinkSound/_GoMg7oF7Ww_000074.mp4', 'demo_all/FoleySpace/_GoMg7oF7Ww_000074.mp4', 'demo_all/MMAudio/_GoMg7oF7Ww_000074.mp4', 'demo_all/See2Sound/_GoMg7oF7Ww_000074.mp4'],
-['demo_all/ThinkSound/_r--eecSZRk_000024.mp4', 'demo_all/MMAudio/_r--eecSZRk_000024.mp4', 'demo_all/FoleySpace/_r--eecSZRk_000024.mp4', 'demo_all/See2Sound/_r--eecSZRk_000024.mp4'],
-['demo_all/See2Sound/_z5KQY02rYI_000002.mp4', 'demo_all/FoleySpace/_z5KQY02rYI_000002.mp4', 'demo_all/ThinkSound/_z5KQY02rYI_000002.mp4', 'demo_all/MMAudio/_z5KQY02rYI_000002.mp4']
+['demo_all/ThinkSound/1.mp4', 'demo_all/MMAudio/1.mp4', 'demo_all/FoleySpace/1.mp4', 'demo_all/See2Sound/1.mp4'],
+['demo_all/See2Sound/2.mp4', 'demo_all/MMAudio/2.mp4', 'demo_all/FoleySpace/2.mp4', 'demo_all/ThinkSound/2.mp4'],
+['demo_all/FoleySpace/3.mp4', 'demo_all/ThinkSound/3.mp4', 'demo_all/See2Sound/3.mp4', 'demo_all/MMAudio/3.mp4'],
+['demo_all/ThinkSound/4.mp4', 'demo_all/FoleySpace/4.mp4', 'demo_all/MMAudio/4.mp4', 'demo_all/See2Sound/4.mp4'],
+['demo_all/ThinkSound/5.mp4', 'demo_all/MMAudio/5.mp4', 'demo_all/FoleySpace/5.mp4', 'demo_all/See2Sound/5.mp4'],
+['demo_all/See2Sound/6.mp4', 'demo_all/FoleySpace/6.mp4', 'demo_all/ThinkSound/6.mp4', 'demo_all/MMAudio/6.mp4']
 ];
 
 let current = 0;
