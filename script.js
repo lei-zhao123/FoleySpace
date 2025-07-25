@@ -37,11 +37,10 @@ const questionGroups = [
 const container = document.getElementById('video-grid');
 
 questionGroups.forEach((group, idx) => {
-  const groupDiv = document.createElement('div');
-  groupDiv.className = 'video-row';
+  // 创建一个包裹4个视频的容器
   group.forEach((src, j) => {
-    const videoDiv = document.createElement('div');
-    videoDiv.className = 'video-item';
+    const wrapper = document.createElement('div');
+    wrapper.className = 'video-item';
 
     const video = document.createElement('video');
     video.src = src;
@@ -51,9 +50,13 @@ questionGroups.forEach((group, idx) => {
     label.className = 'video-label';
     label.textContent = methodOrder[j % 4];
 
-    videoDiv.appendChild(video);
-    videoDiv.appendChild(label);
-    groupDiv.appendChild(videoDiv);
+    wrapper.appendChild(video);
+    wrapper.appendChild(label);
+    container.appendChild(wrapper);
   });
-  container.appendChild(groupDiv);
+
+  // 每4个视频后插入一条横线（占据整行）
+  const separator = document.createElement('div');
+  separator.className = 'video-separator';
+  container.appendChild(separator);
 });
