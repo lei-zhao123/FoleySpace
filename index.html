@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>单视频逐页主观评分问卷</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- 封面页 -->
+    <div id="cover" class="card">
+      <h1>音频主观评分问卷</h1>
+      <p>本问卷用于对 V2A（视频生成音频）模型的整体质量进行主观评估：音频质量、空间一致性、语义一致性、时间一致性、总体满意度。</p>
+      <p class="muted">为保证评估结果的准确性，请使用耳机并适当增加音量。</p>
+
+      <h3>评分准则</h3>
+      <div class="criteria">
+        <strong>🎧 音频质量（Audio Quality）</strong>
+        <table>
+          <tr><th>分数</th><th>评分标准</th></tr>
+          <tr><td>1</td><td>失真严重、杂音/断裂明显，严重影响理解。</td></tr>
+          <tr><td>2</td><td>噪声明显、音色不自然或合成痕迹重。</td></tr>
+          <tr><td>3</td><td>基本清晰，轻微噪声或合成痕迹，可接受。</td></tr>
+          <tr><td>4</td><td>较好，自然流畅，仅少量小缺陷。</td></tr>
+          <tr><td>5</td><td>优秀，清晰自然，无明显缺陷。</td></tr>
+        </table>
+
+        <strong>🧭 空间一致性（Spatial Consistency）</strong>
+        <table>
+          <tr><th>分数</th><th>评分标准</th></tr>
+          <tr><td>1</td><td>与视频空间完全不符，方向混乱或无空间感。</td></tr>
+          <tr><td>2</td><td>定位感弱，方向/距离严重不符。</td></tr>
+          <tr><td>3</td><td>基本合理，但略模糊或不稳定。</td></tr>
+          <tr><td>4</td><td>定位准确，大致符合声源位置。</td></tr>
+          <tr><td>5</td><td>一致性极高，定位精准，沉浸感强。</td></tr>
+        </table>
+
+        <strong>🧠 语义一致性（Semantic Consistency）</strong>
+        <table>
+          <tr><th>分数</th><th>评分标准</th></tr>
+          <tr><td>1</td><td>与视频内容完全不符，产生误导语义。</td></tr>
+          <tr><td>2</td><td>语义偏差较大，无法准确传达含义。</td></tr>
+          <tr><td>3</td><td>大致匹配，存在模糊或轻度偏差。</td></tr>
+          <tr><td>4</td><td>表达清晰，基本一致。</td></tr>
+          <tr><td>5</td><td>高度匹配，准确自然。</td></tr>
+        </table>
+
+        <strong>⏱️ 时间一致性（Temporal Consistency）</strong>
+        <table>
+          <tr><th>分数</th><th>评分标准</th></tr>
+          <tr><td>1</td><td>严重提前/滞后，完全不同步。</td></tr>
+          <tr><td>2</td><td>延迟或对齐不稳，影响体验。</td></tr>
+          <tr><td>3</td><td>基本匹配，少量偏移。</td></tr>
+          <tr><td>4</td><td>同步较好，轻微偏差。</td></tr>
+          <tr><td>5</td><td>高度一致，动作与声音同步。</td></tr>
+        </table>
+
+        <strong>❤️ 感知空间感得分(PSS)</strong>
+        <table>
+          <tr><th>分数</th><th>评分标准</th></tr>
+          <tr><td>1</td><td>几乎没有可感知的空间特性，声音集中在单一位置或完全平面化，没有方向、深度或沉浸感。</td></tr>
+          <tr><td>2</td><td>空间感不明显，方向性或深度感较弱，声源位置感模糊，声场沉浸感很低。</td></tr>
+          <tr><td>3</td><td>有一定的空间感，能感知到方向和距离的变化，但整体空间分离度或沉浸感较弱，声场较为平面化。</td></tr>
+          <tr><td>4</td><td>空间分离感、方向性和深度感较为明显，声场沉浸感较强，但在某些声音位置或细节上略有欠缺。</td></tr>
+          <tr><td>5</td><td>听众能清晰感受到声音在空间中的位置分离、方向、深度和立体感，声场沉浸感极强，空间感真实自然接近现场体验。</td></tr>
+        </table>
+      </div>
+
+      <button id="startBtn" class="btn">开始问卷</button>
+    </div>
+
+    <!-- 问卷页（每页一个视频+评分） -->
+    <div id="page" class="card" style="display:none;">
+      <div class="topbar">
+        <div class="counter" id="counter">第 1 / N 条</div>
+        <button id="backBtn" class="btn secondary">上一个</button>
+      </div>
+      <div id="criteria-desc" class="criteria-desc">
+        <strong>🎧 音频质量（Audio Quality）：</strong>
+        衡量生成音频本身的听感，包括清晰度、自然度、噪声等。
+        <br>
+        <strong>🧭 空间一致性（Spatial Consistency）：</strong>
+        衡量音频的空间定位是否与视频中声源位置匹配（如方向、远近、环境感）。
+        <br>
+        <strong>🧠 语义一致性（Semantic Consistency）：</strong>
+        衡量音频内容是否准确表达视频中的事件或动作语义（如敲门声、说话、狗叫）。
+        <br>
+        <strong>⏱️ 时间一致性（Temporal Consistency）：</strong>
+        衡量音频事件在时间上是否与视频同步，动作与声音是否协调。
+        <br>
+        <strong>❤️ 感知空间感得分（PSS）：</strong>
+        用于评估听众在音频样本中感知到空间特性的程度。它反映了听众对声场中空间分离感、方向感、深度感以及沉浸感的感受。
+      </div>
+      <div class="row">
+        <div class="video-wrap">
+          <video id="video" controls></video>
+        </div>
+        <div>
+          <h3 id="videoTitle">视频 1</h3>
+          <div id="formArea"></div>
+          <div id="errorBox" class="error" style="display:none;">请完成 5 项评分后再继续。</div>
+          <hr />
+          <div class="footer-actions">
+            <button id="nextBtn" class="btn">下一条</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 完成页 -->
+    <div id="done" class="card" style="display:none;">
+      <h2>评分完成！</h2>
+      <p class="muted">点击下方按钮下载 CSV。</p>
+      <button id="downloadBtn" class="btn">下载 CSV</button>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
