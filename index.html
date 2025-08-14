@@ -73,24 +73,29 @@
     <!-- 问卷页（每页一个视频+评分） -->
     <div id="page" class="card" style="display:none;">
       <div class="topbar">
-        <div class="counter" id="counter">第 1 / N 条</div>
+        <div class="counter" id="counter">1 / N</div>
         <button id="backBtn" class="btn secondary">上一个</button>
       </div>
       <div id="criteria-desc" class="criteria-desc">
         <strong>❤️ Perceived Spatiality Score (PSS)：</strong>
         Evaluates the extent to which listeners perceive spatial characteristics in an audio sample. It reflects listeners’ sense of spatial separation, directionality, depth, and immersive quality of the sound field.
         <br>
+        <br>
         <strong>🧭 Spatial Alignment (SA)：</strong>
         Assesses whether the spatial cues in the audio—such as the direction and distance of the sound source—are consistent with the visual information in the video, providing a realistic sense of space.
+        <br>
         <br>
         <strong>⏱️ Temporal Alignment (TA)：</strong>
         Measures the synchronization between audio and video over time, ensuring that sounds occur at the correct moments and align well with visual actions.
         <br>
+        <br>
         <strong>🧠 Semantic Consistency (SC)：</strong>
         Evaluates how well the audio content matches the video semantically, for example, whether the type of sound is appropriate and accurately reflects the events or actions shown.
         <br>
+        <br>
         <strong>🎧 Audio Quality (AQ)：</strong>
         Evaluates the clarity, naturalness, and any noise or distortion in the audio alone, without considering the video content.
+        <br>
         <br>
       </div>
       <div class="row">
@@ -98,12 +103,12 @@
           <video id="video" controls></video>
         </div>
         <div>
-          <h3 id="videoTitle">视频 1</h3>
+          <h3 id="videoTitle">Video 1</h3>
           <div id="formArea"></div>
           <div id="errorBox" class="error" style="display:none;">请完成 5 项评分后再继续。</div>
           <hr />
           <div class="footer-actions">
-            <button id="nextBtn" class="btn">下一条</button>
+            <button id="nextBtn" class="btn">Next Page</button>
           </div>
         </div>
       </div>
