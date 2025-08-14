@@ -197,11 +197,13 @@ const videoList = [
 
 // 评分项定义（键、中文名）
 const CRITERIA = [
-  { key: "audioQuality", label: "音频质量 (Audio Quality)" },
-  { key: "spatialConsistency", label: "空间一致性 (Spatial Consistency)" },
-  { key: "semanticConsistency", label: "语义一致性 (Semantic Consistency)" },
-  { key: "temporalConsistency", label: "时间一致性 (Temporal Consistency)" },
-  { key: "PSS", label: "感知空间感得分（PSS）" },
+  { key: "PSS", label: "Perceived Spatiality Score（PSS）" },
+  { key: "spatialConsistency", label: "Spatial Alignment (SA)" },
+  { key: "temporalConsistency", label: "Temporal Alignment (TA)" },
+  { key: "semanticConsistency", label: "Semantic Consistency (SC)" },
+  { key: "audioQuality", label: "Audio Quality (AQ)" },
+
+
 ];
 
 // ====== 状态 ======
