@@ -261,8 +261,8 @@ function renderPage() {
   page.style.display = "block";
 
   const N = videoList.length;
-  counter.textContent = `第 ${idx + 1} / ${N} 条`;
-  videoTitle.textContent = `视频 ${idx + 1}`;
+  counter.textContent = `${idx + 1} / ${N}`;
+  videoTitle.textContent = `Video ${idx + 1}`;
   videoEl.src = videoList[idx].src;
   videoEl.load();
 
@@ -282,7 +282,7 @@ function renderPage() {
 
   // 按钮 & 错误提示
   backBtn.style.visibility = idx === 0 ? "hidden" : "visible";
-  nextBtn.textContent = idx === N - 1 ? "提交并完成" : "下一条";
+  nextBtn.textContent = idx === N - 1 ? "提交并完成" : "Next Page";
   errorBox.style.display = "none";
 }
 
